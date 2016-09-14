@@ -6,8 +6,8 @@ class ListBuilder < ActiveAdminAddons::CustomBuilder
   end
 
   def render_list(_data)
-    _data.each do |value|
-      context.content_tag(:div) do
+    context.content_tag(:div) do
+      _data.each do |value|
         context.concat(context.content_tag(:span, value))
       end
     end
