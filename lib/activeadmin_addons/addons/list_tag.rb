@@ -8,7 +8,8 @@ class ListBuilder < ActiveAdminAddons::CustomBuilder
   def render_list(_data)
     context.content_tag(:div) do
       _data.each do |value|
-        context.concat(context.content_tag(:span, value, class: "status_tag tag", style: "background-color:blue;"))
+        color = Digest::MD5.hexdigest(value)[0..5]
+        context.concat(context.content_tag(:span, value, class: "status_tag tag", style: "background-color:##{color};"))
       end
     end
   end
